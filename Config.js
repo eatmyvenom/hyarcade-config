@@ -149,6 +149,7 @@ class Config {
         cfg.events = JSON.parse(fs.readFileSync("discord.events.json"));
         cfg.discord = JSON.parse(fs.readFileSync("discord.json"));
         cfg.otherHooks = JSON.parse(fs.readFileSync("discord.timed.json"));
+        return cfg
     }
 
 }
