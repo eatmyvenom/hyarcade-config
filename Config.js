@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { Snowflake, Presence } = require("discord.js")
+const { Snowflake, Presence } = require("discord.js");
 
 class BotUser {
     username = "";
@@ -21,14 +21,14 @@ class DiscordConfig {
     
     /**
      *
-     * @type {String[]}
+     * @type {string[]}
      * @memberof DiscordConfig
      */
     listenChannels = [];
 
     /**
      *
-     * @type {String[]}
+     * @type {string[]}
      * @memberof DiscordConfig
      */
     trustedUsers = [];
@@ -56,7 +56,7 @@ class DiscordConfig {
 
     /**
      *
-     * @type {Object.<string, BotUser>}
+     * @type {object.<string, BotUser>}
      * @memberof DiscordConfig
      */
     setup = {};
@@ -102,7 +102,7 @@ class Config {
 
     /**
      *
-     * @type {Object.<string, EventManager>}
+     * @type {object.<string, EventManager>}
      * @memberof Config
      */
     events = {};
@@ -123,7 +123,7 @@ class Config {
 
     /**
      *
-     * @type {Object.<string, Webhook>}
+     * @type {object.<string, Webhook>}
      * @memberof Config
      */
     otherHooks = {};
@@ -149,7 +149,7 @@ class Config {
         cfg.events = JSON.parse(fs.readFileSync("discord.events.json"));
         cfg.discord = JSON.parse(fs.readFileSync("discord.json"));
         cfg.otherHooks = JSON.parse(fs.readFileSync("discord.timed.json"));
-        return cfg
+        return cfg;
     }
 
 }
