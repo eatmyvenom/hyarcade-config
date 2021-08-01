@@ -10,7 +10,7 @@ module.exports = class Runtime {
     static fromJSON() {
         let newRun = new Runtime();
         let json = JSON.parse(ffs.readFileSync("data/runtimeinfo.json"));
-        for (let p in json) {
+        for(let p in json) {
             newRun[p] = json[p];
         }
         return newRun;

@@ -1,5 +1,8 @@
 const fs = require("fs");
-const { Snowflake, Presence } = require("discord.js");
+const {
+    Snowflake,
+    Presence
+} = require("discord.js");
 
 class BotUser {
     username = "";
@@ -18,7 +21,7 @@ class DiscordConfig {
     miniToken = "";
     mwToken = "";
     testToken = "";
-    
+
     /**
      *
      * @type {string[]}
@@ -128,18 +131,18 @@ class Config {
      */
     otherHooks = {};
 
-    mojang = class MojangSettings{
+    mojang = class MojangSettings {
         sleep = 0;
     };
 
-    std = class STDControl{
+    std = class STDControl {
         disable = false;
         out = "";
         err = "";
     };
 
     constructor(json) {
-        for (let thing in json) {
+        for(let thing in json) {
             this[thing] = json[thing];
         }
     }
