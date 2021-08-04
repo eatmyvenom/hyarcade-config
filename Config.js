@@ -147,6 +147,10 @@ class Config {
         }
     }
 
+    /**
+     * 
+     * @returns {Config}
+     */
     static fromJSON() {
         let cfg = new Config(JSON.parse(fs.readFileSync("config.json")));
         cfg.events = JSON.parse(fs.readFileSync("discord.events.json"));
