@@ -141,7 +141,7 @@ class Config {
         err = "";
     };
 
-    constructor(json) {
+    constructor (json) {
         for(let thing in json) {
             this[thing] = json[thing];
         }
@@ -151,7 +151,7 @@ class Config {
      * 
      * @returns {Config}
      */
-    static fromJSON() {
+    static fromJSON () {
         let cfg = new Config(JSON.parse(fs.readFileSync("config.json")));
         cfg.events = JSON.parse(fs.readFileSync("discord.events.json"));
         cfg.discord = JSON.parse(fs.readFileSync("discord.json"));
