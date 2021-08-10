@@ -1,7 +1,7 @@
 const fs = require("fs");
 const {
-    Snowflake,
-    Presence
+  Snowflake,
+  Presence
 } = require("discord.js");
 
 class BotUser {
@@ -142,9 +142,9 @@ class Config {
     };
 
     constructor (json) {
-        for(const thing in json) {
-            this[thing] = json[thing];
-        }
+      for(const thing in json) {
+        this[thing] = json[thing];
+      }
     }
 
     /**
@@ -152,11 +152,11 @@ class Config {
      * @returns {Config}
      */
     static fromJSON () {
-        const cfg = new Config(JSON.parse(fs.readFileSync("config.json")));
-        cfg.events = JSON.parse(fs.readFileSync("discord.events.json"));
-        cfg.discord = JSON.parse(fs.readFileSync("discord.json"));
-        cfg.otherHooks = JSON.parse(fs.readFileSync("discord.timed.json"));
-        return cfg;
+      const cfg = new Config(JSON.parse(fs.readFileSync("config.json")));
+      cfg.events = JSON.parse(fs.readFileSync("discord.events.json"));
+      cfg.discord = JSON.parse(fs.readFileSync("discord.json"));
+      cfg.otherHooks = JSON.parse(fs.readFileSync("discord.timed.json"));
+      return cfg;
     }
 
 }
