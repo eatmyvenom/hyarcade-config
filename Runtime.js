@@ -8,9 +8,9 @@ module.exports = class Runtime {
     }
 
     static fromJSON () {
-        let newRun = new Runtime();
-        let json = JSON.parse(ffs.readFileSync("data/runtimeinfo.json"));
-        for(let p in json) {
+        const newRun = new Runtime();
+        const json = JSON.parse(ffs.readFileSync("data/runtimeinfo.json"));
+        for(const p in json) {
             newRun[p] = json[p];
         }
         return newRun;
