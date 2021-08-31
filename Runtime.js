@@ -9,10 +9,17 @@ module.exports = class Runtime {
 
   static fromJSON () {
     const newRun = new Runtime();
-    const json = JSON.parse(ffs.readFileSync("data/runtimeinfo.json"));
-    for(const p in json) {
-      newRun[p] = json[p];
+    let json;
+    try {
+      json = JSON.parse(ffs.readFileSync("data/runtimeinfo.json"));
+      for(const p in json) {
+        newRun[p] = json[p];
+      }
+    } catch (e) {
+      logger.err("RUNTIME JSON CANNOT LOAD CORRECTLY, SETTING TO NONE");
+      json = {};
     }
+
     return newRun;
   }
 };
