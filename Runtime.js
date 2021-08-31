@@ -1,10 +1,10 @@
-const ffs = require("fs");
+const ffs = require("fs-extra");
 const logger = require("hyarcade-logger");
 
 module.exports = class Runtime {
   async save () {
     logger.debug("Saving runtime info json");
-    await ffs.promises.writeFile("data/runtimeinfo.json", JSON.stringify(this, null, 2));
+    await ffs.writeFile("data/runtimeinfo.json", JSON.stringify(this, null, 2));
   }
 
   static fromJSON () {
