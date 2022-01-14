@@ -152,10 +152,16 @@ class Config {
      * @returns {Config}
      */
     static fromJSON () {
-      const cfg = new Config(JSON.parse(fs.readFileSync("config.json")));
-      cfg.events = JSON.parse(fs.readFileSync("discord.events.json"));
-      cfg.discord = JSON.parse(fs.readFileSync("discord.json"));
-      cfg.otherHooks = JSON.parse(fs.readFileSync("discord.timed.json"));
+      const configs = fs.readdirSync("config");
+
+      const cfg = new Config(JSON.parse(fs.readFileSync("config/config.json")));
+
+      for(const file of configs) {
+        if(file.slice(-5, file.length) == ".json") {
+          cfg[file.replace(/\.json/g, "")] = JSON.parse(fs.readFileSync(`config/${file}`));
+        }
+      }
+
       return cfg;
     }
 
