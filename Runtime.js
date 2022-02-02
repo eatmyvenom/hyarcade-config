@@ -4,7 +4,7 @@ const logger = require("hyarcade-logger");
 module.exports = class Runtime {
   async save() {
     logger.debug("Saving runtime info json");
-    await ffs.writeFile("data/runtimeinfo.json", JSON.stringify(this, null, 2));
+    await ffs.writeFile("data/runtimeinfo.json", JSON.stringify(this, undefined, 2));
   }
 
   static fromJSON() {
@@ -15,7 +15,7 @@ module.exports = class Runtime {
       for (const p in json) {
         newRun[p] = json[p];
       }
-    } catch (e) {
+    } catch {
       logger.err("RUNTIME JSON CANNOT LOAD CORRECTLY, SETTING TO NONE");
       json = {};
     }
