@@ -24,13 +24,6 @@ class DiscordConfig {
    * @type {string[]}
    * @memberof DiscordConfig
    */
-  listenChannels = [];
-
-  /**
-   *
-   * @type {string[]}
-   * @memberof DiscordConfig
-   */
   trustedUsers = [];
 
   /**
